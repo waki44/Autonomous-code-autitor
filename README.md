@@ -1,42 +1,62 @@
-# Autonomous Cybersecurity Code Auditor
+# 🛡 Autonomous Code Auditor
 
-An advanced, highly capable AI-driven autonomous agent engineered to streamline the modern software development lifecycle by proactively scanning, deep auditing, and identifying critical security vulnerabilities within source code repositories for maximum software application protection.
+![Python](https://img.shields.io/badge/Python-3.x-blue)
+![Bandit](https://img.shields.io/badge/Scan-Bandit-yellow)
+![Gemini](https://img.shields.io/badge/AI-Google_Gemini-orange)
+
+> An AI-powered agent that scans code for security vulnerabilities — and rewrites just the flagged lines into secure code, keeping everything else untouched.
+
+## ⚙️ How It Works
+
+1. **Bandit scan** — a static security scan runs over the target file.
+2. **Gemini agent** — reads your code together with the Bandit report and fixes only the flagged vulnerabilities, such as SQL injection, command injection, and hardcoded secrets.
+3. **Fixed code out** — you get back clean, secure code with the original functionality preserved.
+
+## 👀 See It In Action
+
+The repo includes a before/after demo pair:
+
+- `vulnerable_app.py` — sample code with security flaws
+- `fixed_app.py` — the same code, secured
+
+## 🚀 Setup
+
+```bash
+git clone https://github.com/waki44/Autonomous-code-autitor.git
+cd Autonomous-code-autitor
+
+pip install bandit google-genai python-dotenv
+```
+
+Create a `.env` file with your key (and keep it out of git — add `.env` to `.gitignore`):
+
+```text
+GEMINI_API_KEY=your_key_here
+```
+
+Then audit any file:
+
+```python
+from main import audit_and_fix_code
+
+audit_and_fix_code("vulnerable_app.py")
+```
+
+## 📂 Project Structure
+
+```text
+├── main.py              # Bandit scan + Gemini fix pipeline
+├── auditor_agent.py     # Agent logic
+├── auditor_module.py    # Audit module
+├── vulnerable_app.py    # Demo: insecure sample code
+├── fixed_app.py         # Demo: secured version
+└── testcode.py          # Sample code for testing
+```
+
+## 🔍 What It Catches
+
+OWASP Top 10 issues including SQL injection, command injection, hardcoded secrets, dangerous cryptography, and insecure configurations — with a context-aware fix for each one.
 
 ---
 
-## 🚀 Key Features
-
-* **Automated Vulnerability Detection:** Scans comprehensive codebases across multiple programming languages to uncover common security flaws, including OWASP Top 10 vulnerabilities, SQL and command injection vectors, server-side request forgery, dangerous cryptographic practices, infrastructural misconfigurations, and vulnerable third-party dependencies.
-* **Intelligent Remediation Suggestions:** Goes far beyond traditional static analysis security testing by leveraging advanced language models to provide context-aware, highly actionable code patches, detailed vulnerability risk explanations, and secure code implementation alternatives directly inside your development workspace.
-* **Seamless Terminal & Git Integration:** Designed to operate smoothly within standard developer command-line environments, allowing for rapid local script execution, continuous auditing, pre-commit checks, and effortless repository management and publishing.
-* **Customizable Security Policies:** Tailor scanning parameters, custom rule sets, and compliance checks to match specific organizational security standards and internal software development lifecycles.
-
----
-
-## 📐 Architecture & System Workflow
-
-The architecture and execution flow of the autonomous code auditing agent operate through the following sequential steps:
-
-* **Developer Workspace:** Serves as the primary starting point containing the local source code repository and project files to be audited.
-* **Core Agent Entry Point (`main.py / CLI`):** Acts as the command-line interface and main controller that initializes the agent and triggers the scanning process.
-* **Parser & File Handler:** Parses project files, reads directory structures, and extracts code logic for deep security analysis.
-* **Security Policy Engine:** Loads custom rule sets, security policies, compliance standards, and known vulnerability databases (such as OWASP Top 10).
-* **AI Auditor Core Engine:** Utilizes advanced language models and automated analysis logic to process code files, evaluate security risks, and detect potential vulnerabilities.
-* **Remediation Generator:** Automatically generates context-aware code patches, secure alternatives, and detailed explanations for every flagged security flaw.
-* **Report Generator:** Compiles structured Markdown audit reports alongside machine-parseable data outputs for developers and security teams.
-* **Output & Repository Sync:** Finalizes audit logs, saves generated reports locally, and provides seamless synchronization and pushing to GitHub repositories.
-
----
-
-## 🛠️ Tech Stack
-
-* **Language:** Python 3.x
-* **Core Logic:** Agentic Workflow Automation & Static Code Parsing
-* **Version Control:** Git & GitHub Integration
-* **Output Formats:** Structured Markdown & Machine-Parseable Data Outputs
-
----
-
-## 💡 Benefits
-
-By integrating automated code auditing into your daily workflow, development teams can drastically reduce the manual overhead of security reviews, catch vulnerabilities before code ever reaches production, and minimize deployment delays. Whether you are managing complex enterprise applications, internal microservices, or open-source libraries, this autonomous agent ensures your software remains robust, resilient, and secure against evolving cyber threats, protecting sensitive user data and reducing overall risk exposure across all active projects.
+Built by **Syed Waqar Raza Zaidi** · 🌐 [Portfolio](https://portfolio-website-sigma-ashen-90.vercel.app)
