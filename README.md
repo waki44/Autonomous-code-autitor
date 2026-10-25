@@ -6,6 +6,8 @@
 
 > An AI-powered agent that scans code for security vulnerabilities — and rewrites just the flagged lines into secure code, keeping everything else untouched.
 
+![Security Flow](assets/security-flow.png)
+
 ## ⚙️ How It Works
 
 1. **Bandit scan** — a static security scan runs over the target file.
